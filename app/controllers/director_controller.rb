@@ -3,6 +3,4 @@ class DirectorController < ActionController::Base
     render({ :template => "director_templates/index.html.erb"})
   end
 
-
-
 end
