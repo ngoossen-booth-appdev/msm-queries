@@ -1,4 +1,4 @@
-class DirectorController < ActionController::Base
+class DirectorController < ApplicationController
   def home
     @list_of_directors = Director.all
 
