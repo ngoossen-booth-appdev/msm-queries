@@ -14,8 +14,9 @@ class DirectorController < ActionController::Base
   end
 
   def eldest
-    # @director_id = params.fetch("director_id")
-
+    @eldest_director = Director.order({ :dob => :asc }).where.not({ :dob => nil }).at(0)
+    
+    
     render({ :template => "director_templates/director_eldest.html.erb"})
 
   end
