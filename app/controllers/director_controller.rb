@@ -1,13 +1,14 @@
 class DirectorController < ActionController::Base
-  def index
+  def home
     @list_of_directors = Director.all
 
 
-    render({ :template => "director_templates/index.html.erb"})
+    render({ :template => "director_templates/director_home.html.erb"})
   end
 
   def details
-    @director_id = params.fetch("director_id")
+    director_id = params.fetch("director_id")
+    @the_director = Director.where({ :id =>director_id}).at(0)
 
     render({ :template => "director_templates/director_details.html.erb"})
 

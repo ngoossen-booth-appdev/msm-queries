@@ -1,6 +1,6 @@
 class ActorController < ActionController::Base
-  def index
-    render({ :template => "actor_templates/index.html.erb"})
+  def home
+    render({ :template => "actor_templates/actor_home.html.erb"})
   end
 
 end
