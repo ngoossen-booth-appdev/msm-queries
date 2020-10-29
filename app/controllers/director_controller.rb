@@ -9,6 +9,7 @@ class DirectorController < ActionController::Base
   def details
     director_id = params.fetch("director_id")
     @the_director = Director.where({ :id =>director_id}).at(0)
+    @filmography = Movie.where({ :director_id => @the_director.id})
 
     render({ :template => "director_templates/director_details.html.erb"})
 
