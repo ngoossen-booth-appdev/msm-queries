@@ -22,8 +22,7 @@ class DirectorController < ActionController::Base
   end
 
   def youngest
-    # @director_id = params.fetch("director_id")
-
+    @youngest_director = Director.order({ :dob => :desc }).where.not({ :dob => nil }).at(0)
     render({ :template => "director_templates/director_youngest.html.erb"})
 
   end
