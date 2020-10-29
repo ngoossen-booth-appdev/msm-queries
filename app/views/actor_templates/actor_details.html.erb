@@ -60,3 +60,27 @@
 </dl>
 
 <hr>
+
+h2>Filmography</h2>
+
+<table border="1">
+  <tr>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Director</th>
+    <th>Character Name</th>
+
+  </tr>
+
+
+<% @characters.each do |a_character| %>
+<tr>
+  <td> <%m = Movie.where({ :id=>Character.where({:actor_id => a_character}).at(0).movie_id}).at(0)%><%=m.title%></td>
+  <td> <%= m.year %> </td>
+  <td><% d= Director.where({ :id => m.director_id}).at(0)%><%= d.name%></td>
+  <td> <%c = Character.where({:actor_id => a_character}).at(0)%><%=c.name%></td>
+
+</tr>
+<%end%>
+</table> 
+

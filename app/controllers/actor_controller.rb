@@ -7,9 +7,10 @@ class ActorController < ActionController::Base
     def details
     actor_id = params.fetch("actor_id")
     @the_actor = Actor.where({ :id =>actor_id}).at(0)
-    
+    #characters played
     @characters = Character.where({ :actor_id => @the_actor.id})
-    @movies = Character.where({:actor_id => @the_actor.id})
+    #movies stared in
+    #@movies = Movie.where({:movie_id => @characters.id})
 
     render({ :template => "actor_templates/actor_details.html.erb"})
 
