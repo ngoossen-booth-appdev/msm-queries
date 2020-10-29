@@ -72,18 +72,24 @@
     <th>Title</th>
 
     <th>Year</th>
+    <th>Director</th>
     <th>Details</th>
 
   </tr>
 
 
-<% @filmography.each do |a_thing| %>
+<% @filmography.each do |a_film| %>
 <tr>
-  <td><%= a_thing.id%></td>
-  <td><img src ="http://robohash.org/<%= a_thing.image%>"></td>
-  <td><%= a_thing.title%></td>
-  <td><%= a_thing.year%></td>
-  <td><a href="/movies/<%=a_thing.id%>">Show Details</a></td>
+  <td><%= a_film.id%></td>
+  <td><img src ="http://robohash.org/<%= a_film.image%>"></td>
+  <td><%= a_film.title%></td>
+  <td><%= a_film.year%></td>
+  <td>
+  <% d= Director.where({ :id => a_film.director_id}).at(0)%>
+<%= d.name%>
+</td>
+
+  <td><a href="/movies/<%=a_film.id%>">Show Details</a></td>
   
 </tr>
 <%end%>

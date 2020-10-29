@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   
   
   get("/actors", {:controller => "actor", :action => "home"})
+  get("/actors/:actor_id", {:controller => "actor", :action => "details"})
+
   get("/characters", {:controller => "character", :action => "home"})
+  get("/characters/:character_id", {:controller => "character", :action => "details"})
+  
   get("/movies", {:controller => "movie", :action => "home"})
+  get("/movies/:movie_id", {:controller => "movie", :action => "details"})
 end

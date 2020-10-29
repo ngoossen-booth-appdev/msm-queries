@@ -4,4 +4,15 @@ class ActorController < ActionController::Base
     render({ :template => "actor_templates/actor_home.html.erb"})
   end
 
+    def details
+    actor_id = params.fetch("actor_id")
+    @the_actor = Actor.where({ :id =>actor_id}).at(0)
+    
+    @characters = Character.where({ :actor_id => @the_actor.id})
+    @movies = Character.where({:actor_id => @the_actor.id})
+
+    render({ :template => "actor_templates/actor_details.html.erb"})
+
+  end
+
 end
